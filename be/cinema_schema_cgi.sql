@@ -1,7 +1,7 @@
 CREATE TABLE "movie_screening" (
   "id" serial PRIMARY KEY,
-  "movie_id" integer unique ,
-  "screen_id" integer unique ,
+  "movie_id" integer,
+  "screen_id" integer ,
   "ticket_cost_id" integer
 );
 
@@ -20,7 +20,7 @@ CREATE TABLE "movie" (
   "subtitle_est" bool,
   "subtitle_rus" bool,
   "length" integer,
-  "movie_genre_id" integer unique ,
+  "movie_genre_id" integer,
   "description" text,
   "poster" text,
   "trailer" text
@@ -28,19 +28,13 @@ CREATE TABLE "movie" (
 
 CREATE TABLE "movie_genre" (
   "id" serial PRIMARY KEY,
-  "movie_id" integer unique ,
-  "genre_id" integer unique
+  "movie_id" integer ,
+  "genre_id" integer
 );
 
 CREATE TABLE "genre" (
-  "id" serial PRIMARY KEY,
-  "horror" bool,
-  "comedy" bool,
-  "romance" bool,
-  "action" bool,
-  "family" bool,
-  "sci-fi" bool,
-  "kids" bool
+    "id" serial PRIMARY KEY,
+    "genre" varchar
 );
 
 CREATE TABLE "screen" (
@@ -52,7 +46,7 @@ CREATE TABLE "screen" (
 
 CREATE TABLE "seat" (
   "id" serial PRIMARY KEY,
-  "screen_id" integer unique ,
+  "screen_id" integer ,
   "row" varchar,
   "seat" integer,
   "available" bool
@@ -62,7 +56,7 @@ CREATE TABLE "schedule" (
   "id" serial PRIMARY KEY,
   "date" integer,
   "time" integer,
-  "movie_screening_id" integer unique
+  "movie_screening_id" integer
 );
 
 CREATE TABLE "users" (
@@ -76,9 +70,9 @@ CREATE TABLE "users" (
 
 CREATE TABLE "booking" (
   "id" serial PRIMARY KEY,
-  "user_id" integer unique ,
-  "selected_row" integer,
+  "user_id" integer,
+  "selected_row" varchar,
   "selected_seat" integer,
-  "movie_screening_id" integer unique
+  "movie_screening_id" integer
 );
 
