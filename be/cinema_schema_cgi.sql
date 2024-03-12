@@ -58,7 +58,7 @@ CREATE TABLE "schedule" (
   "time" integer,
   "movie_screening_id" integer
 );
-
+-- the table needs to be in plural because user is not a valid table name in postgres
 CREATE TABLE "users" (
   "id" serial PRIMARY KEY,
   "username" varchar,
@@ -75,4 +75,5 @@ CREATE TABLE "booking" (
   "selected_seat" integer,
   "movie_screening_id" integer
 );
+
 
