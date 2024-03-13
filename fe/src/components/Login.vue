@@ -3,13 +3,17 @@
     <h1>CGI Cinema login</h1>
     <form @submit.prevent="handleSubmit(email)" >
       <label for="email">Email:</label>
-
-<!-- TODO add email verification to the field -->
       <input id="email" v-model="email" required />
       <button type="submit">Login</button>
     </form>
+
+    <form @submit.prevent="getAllUsers()" >
+      <button type="submit">Get all Users data</button>
+    </form>
+
     <p v-if="error">{{ error }}</p>
     <pre v-if="userData">{{ userData }}</pre>
+    <pre v-if="users">{{ users }}</pre>
   </div>
 </template>
 
@@ -20,26 +24,47 @@
         email: '',
         error: null,
         userData: null,
-        response:null
+        response:null,
+        users:[]
       };
     },
     // TODO get a valid user.
     methods:{
-        handleSubmit(email){
-          fetch(`http://localhost:9090/users/${email}`, {
-            method: 'GET',
+      handleSubmit(email){
+        this.userData= null
+        this.users = null
+        fetch(`http://localhost:9090/users/${email}`, {
+          method: 'GET',
+        })
+          .then(response => {
+            return response.json()
           })
-              .then(response => {
-                return response.json()
-              })
-              .then(data => {
-                this.userData = data;
-              })
-              .catch(error => {
-                console.error('Error fetching data:', error);
-                this.error = 'Failed to retrieve user data.';
-              });
-        }
+          .then(data => {
+            this.userData = data;
+          })
+          .catch(error => {
+            console.error('Error fetching data:', error);
+            this.error = 'Failed to retrieve user data.';
+          });
+      },
+      getAllUsers(){
+
+        //TODO reset fields
+       this.users = null
+        fetch(`http://localhost:9090/users/valid`, {
+          method: 'GET',
+        })
+          .then(response => {
+            return response.json()
+          })
+          .then(data => {
+            this.users = data;
+          })
+          .catch(error => {
+            console.error('Error fetching data:', error);
+            this.error = 'Failed to retrieve user data.';
+          });
+      },
     }
   }
 </script>
