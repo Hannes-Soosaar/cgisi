@@ -28,3 +28,6 @@
 
 -Frameworks
     -If in a hurry lombok might have been a good idea for simplifying getter and setter creation
+
+-IntelliJ
+    - has auto Intelli sense for getters and setters also a wizard for filling out "toString method"
