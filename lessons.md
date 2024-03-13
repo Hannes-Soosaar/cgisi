@@ -22,3 +22,7 @@
 -Spring Boot backend ( 4h and counting)
   - I should have stayed with the  DDD  (Domain-Driven Design)architecture type I had done a project with, might have been easier..
   - The MVC (Model View Controller) architecture is rather straight forward and makes sense, but I can see how large project can become complex 
+-Setting up the FE for API (4h and counting )
+  - an API request requires that a CORS is enabled.   by default it is not enabled in the vite server. the following must be added to the vite.config.js file under the server section
+  - 
+  - 

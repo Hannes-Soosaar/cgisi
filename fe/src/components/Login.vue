@@ -1,59 +1,48 @@
-<script>
-// setup
-// defineProps({
-//   msg: {
-//     type: String,
-//     required: true
-//   }
-// })
+<template>
+  <div>
+    <h1>Login</h1>
+    <form @submit.prevent="handleSubmit(email)">
+      <label for="email">Email:</label>
+      <input id="email" v-model="email" />
+      <button type="submit">Login</button>
+    </form>
+    <p v-if="error">{{ error }}</p>
+    <pre v-if="userData">{{ userData }}</pre>
+  </div>
+</template>
 
-// import {ref} from 'vue';
+
+<script>
   export default {
     data() {
       return {
-        email: '',
+        email: 'a',
         error: null,
         userData: null,
+        response:null
       };
     },
-    methods: {
-      handleSubmit(email) {
-        this.error = null; // Clear any previous errors
-        this.userData = null; // Clear previous data
 
-        fetch(`http://localhost:9090/users/${email}`,{
-          method: 'GET',
-        })
-            .then( response => {
-              console.log(response);
-               return response.text()})
+    mounted() {
 
-            .then(data => {
-              this.userData = data;
-            })
-            .catch(error => {
-              console.error('Error fetching data:', error);
-              this.error = 'Failed to retrieve user data.';
-            });
-      },
-    },
+      fetch(`http://localhost:9090/users/a`, {
+            method: 'GET',
+          })
+              .then(response => {
+                console.log(response);
+                return response.json()
+              })
+
+              .then(data => {
+                this.userData = data;
+              })
+              .catch(error => {
+                console.error('Error fetching data:', error);
+                this.error = 'Failed to retrieve user data.';
+              });
+        }
 }
 </script>
-
-<template>
-
-    <div>
-      <h1>Login</h1>
-      <form @submit.prevent="handleSubmit(email)">
-        <label for="email">Email:</label>
-        <input id="email" v-model="email" />
-        <button type="submit">Login</button>
-      </form>
-      <p v-if="error">{{ error }}</p>
-      <pre v-if="userData">{{ userData }}</pre>
-    </div>
-</template>
-
 <style scoped>
 h1 {
   font-weight: 500;

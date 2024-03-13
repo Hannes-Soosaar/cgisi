@@ -20,14 +20,15 @@ public class UserController {
     public UserController(UserService userService){
         this.userService = userService;
     }
-//      @GetMapping("/{email}")
-//      public Users getUserByEmail(@PathVariable String email) {
-//        return userService.getUserByEmail(email);
-//    }
 
     @GetMapping("/{email}")
-    public String foo(String email){
-        return "text back ";
+    public Users getUserByEmail(@PathVariable String email) {
+        return userService.getUserByEmail(email);
     }
+//
+//    @GetMapping("/{email}")
+//    public String foo(String email) {
+//        return "text back ";
+//    }
 
 }
