@@ -3,7 +3,6 @@ package cgi.be.model;
 public class Users {
     private Long id;
     private String userName;
-
     private String email;
     private String credentials;
     private boolean admin;

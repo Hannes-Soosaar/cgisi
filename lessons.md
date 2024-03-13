@@ -25,4 +25,6 @@
   - 
 -Setting up the FE for API (4h and counting )
   - an API request requires that a CORS is enabled.By default, CORS is not enabled in the vite server. the following must be added to the vite.config.js file under the server: section to enable CORS globally
-  -
+
+-Frameworks
+    -If in a hurry lombok might have been a good idea for simplifying getter and setter creation
