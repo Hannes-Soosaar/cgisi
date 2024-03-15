@@ -1,10 +1,12 @@
 package cgi.be.model;
 
+import java.math.BigDecimal;
+
 public class TicketCost {
 
     private Long id;
-    private Integer regular;
-    private Integer discount;
+    private BigDecimal regular;
+    private BigDecimal discount;
 
     public TicketCost(){
 
@@ -17,19 +19,19 @@ public class TicketCost {
         return id;
     }
 
-    public void setDiscount(Integer discount) {
+    public void setDiscount(BigDecimal discount) {
         this.discount = discount;
     }
 
-    public Integer getDiscount() {
+    public BigDecimal getDiscount() {
         return discount;
     }
 
-    public void setRegular(Integer regular) {
+    public void setRegular(BigDecimal regular) {
         this.regular = regular;
     }
 
-    public Integer getRegular() {
+    public BigDecimal getRegular() {
         return regular;
     }
 

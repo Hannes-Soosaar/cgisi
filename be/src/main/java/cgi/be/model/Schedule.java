@@ -29,6 +29,14 @@ public class Schedule {
     public void setTime(Integer time) {
         this.time = time;
     }
+
+    public void setMovieScreeningId(Integer movieScreeningId) {
+        this.movieScreeningId = movieScreeningId;
+    }
+    public Integer getMovieScreeningId() {
+        return movieScreeningId;
+    }
+
     public Integer getTime() {
         return time;
     }

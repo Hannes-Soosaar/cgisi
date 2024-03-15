@@ -64,5 +64,4 @@ public class Users {
     public String toString(){
         return "User { " +"id= " +id+ ", user name= "+ userName+", email = "+email+ ", is admin = "+ admin +",is active= "+active+" }";
     }
-
 }
