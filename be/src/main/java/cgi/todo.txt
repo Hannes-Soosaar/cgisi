@@ -1,0 +1,13 @@
+Add
+
+1) Create Read Me instructions on how to run
+2) Come up the suggestion algorithm
+    a. take into account the frequency of the genre watched.
+    b. weight the most recent movie the heavier
+    c. every fifth login weight the most distant view the most
+    d. take into account the theater that the movie was watched at
+    e. suggest the screening with the  most similar time
+    f. if there is less than 1 watching for the movie use generic suggestions
+3) For the seat suggestion always suggest the seats in the middle
+    a. use div2 to figure out the best seat
+    b. have 3 zones.
